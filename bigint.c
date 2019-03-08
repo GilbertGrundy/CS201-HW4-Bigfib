@@ -162,8 +162,8 @@ extern bucket_t addc_asm_adc(bucket_t *carry, bucket_t b1, bucket_t b2) {
     uint8_t cout;
     asm(
         "xorb   %1, %1\n\t"
-        "cmpq $1, %4\n\t"
-        "cmc\n\t"
+        "cmpq   $1, %4\n\t"
+        "cmc          \n\t"
         "movq	%2, %0\n\t"
         "adcq	%3, %0\n\t"
         "setc %1\n\t"
