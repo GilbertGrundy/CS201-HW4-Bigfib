@@ -66,4 +66,19 @@
     all tests passed
     
     
-6.  
+6.  With my asm() code I ran 'time ./bigfib 100000 >/dev/null' three
+    times again:
+
+    real    0m0.088s
+    user    0m0.082s
+    sys     0m0.004s
+
+    real    0m0.086s
+    user    0m0.082s
+    sys     0m0.004s
+
+    real    0m0.116s
+    user    0m0.115s
+    sys     0m0.000s
+
+
