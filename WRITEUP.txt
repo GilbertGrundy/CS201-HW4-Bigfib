@@ -1,3 +1,7 @@
+Gilbert Grundy CS201
+Homework 4 - Bigfib
+
+
 1.  I ran 'time ./bigfib 100000 >/dev/null' three times,
     and got this output:
 
@@ -74,11 +78,11 @@
 
     asm(
         "xorb   %1, %1\n\t"
-        "cmpq $1, %4\n\t"
-        "cmc\n\t"
+        "cmpq   $1, %4\n\t"
+        "cmc          \n\t"
         "movq	%2, %0\n\t"
         "adcq	%3, %0\n\t"
-        "setc %1\n\t"
+        "setc       %1\n\t"
         : "=&rm" (sum), "=&rm"(cout)
         : "rm" (b1), "rm" (b2), "r" (cin)
         : "cc"
@@ -100,3 +104,11 @@
     sys     0m0.000s
 
     So, it appears that I've sped up the code significantly.
+    
+    Took me a while to rap my head round the assembly code, but after reading
+    the hints that Bart gave us, and the explanation of the assembly functions,
+    and a little trial and error, I got the code to work!
+    
+    Feel like this assignment has helped me understand in-line assembly code
+    much better. Hopefully with practice assembly will become more natural to
+    me.     
