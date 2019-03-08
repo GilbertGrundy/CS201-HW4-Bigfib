@@ -166,7 +166,7 @@ extern bucket_t addc_asm_adc(bucket_t *carry, bucket_t b1, bucket_t b2) {
         "cmc          \n\t"
         "movq	%2, %0\n\t"
         "adcq	%3, %0\n\t"
-        "setc %1\n\t"
+        "setc       %1\n\t"
         : "=&rm" (sum), "=&rm"(cout)
         : "rm" (b1), "rm" (b2), "r" (cin)
         : "cc"
