@@ -29,5 +29,8 @@ struct bigint *bigint_add(struct bigint *b1, struct bigint *b2);
 #ifdef ADDC_ASM_JMP
 #define ADDC addc_asm_jmp
 #endif
+#ifdef ADDC_ASM_ADC
+#define ADDC addc_asm_adc
+#endif
 
 extern bucket_t ADDC(bucket_t *carry, bucket_t b1, bucket_t b2);
