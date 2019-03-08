@@ -1,0 +1,41 @@
+1.  I ran 'time ./bigfib 100000 >/dev/null' three times,
+    and got this output:
+
+    real    0m0.367s
+    user    0m0.363s
+    sys     0m0.004s
+
+    real    0m0.368s
+    user    0m0.367s
+    sys     0m0.001s
+
+    real    0m0.363s
+    user    0m0.363s
+    sys     0m0.000s
+
+
+2.  I ran 'time python3 bigfib.py 100000 >/dev/null' three times,
+    and got this output:
+
+    real    0m0.236s
+    user    0m0.214s
+    sys     0m0.009s
+
+    real    0m0.231s
+    user    0m0.215s
+    sys     0m0.016s
+
+    real    0m0.219s
+    user    0m0.215s
+    sys     0m0.004s
+
+
+3.
+
+
+4.
+
+
+5.
+
+
