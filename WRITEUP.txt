@@ -37,19 +37,6 @@
     Each sample counts as 0.01 seconds.
     %   cumulative   self              self     total
     time   seconds   seconds    calls  ns/call  ns/call  name
-    50.10      0.10     0.10                             bigint_add
-    35.07      0.17     0.07 54285300     1.29     1.29  addc_asm_jmp
-    15.03      0.20     0.03                             bigint_print
-    0.00      0.20     0.00   100000     0.00     0.00  bigint_new
-    0.00      0.20     0.00     1084     0.00     0.00  bigint_grow
-    0.00      0.20     0.00        2     0.00     0.00  hex_digit_value
-
-    It appears I spent 50% of the program time inside the bigint_add function,
-    and 35% in the addc_asm_jump function.
-
-4.  Each sample counts as 0.01 seconds.
-    %   cumulative   self              self     total
-    time   seconds   seconds    calls  ns/call  ns/call  name
     53.05      0.09     0.09 54284216     1.66     1.66  addc_c
     41.26      0.16     0.07                             bigint_add
     5.89      0.17     0.01                             bigint_print
@@ -58,6 +45,20 @@
     0.00      0.17     0.00     1084     0.00     0.00  bigint_grow
     0.00      0.17     0.00        2     0.00     0.00  hex_digit_value
 
+    It appears I spent 50% of the program time inside the bigint_add function,
+    and 35% in the addc_asm_jump function.
+
+4.  With the profilling 
+
+    Each sample counts as 0.01 seconds.
+    %   cumulative   self              self     total
+    time   seconds   seconds    calls  ns/call  ns/call  name
+    50.10      0.10     0.10                             bigint_add
+    35.07      0.17     0.07 54285300     1.29     1.29  addc_asm_jmp
+    15.03      0.20     0.03                             bigint_print
+    0.00      0.20     0.00   100000     0.00     0.00  bigint_new
+    0.00      0.20     0.00     1084     0.00     0.00  bigint_grow
+    0.00      0.20     0.00        2     0.00     0.00  hex_digit_value
 
 
 5.  I ran './unit' and it output:
