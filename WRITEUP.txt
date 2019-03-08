@@ -111,4 +111,8 @@ Homework 4 - Bigfib
     
     Feel like this assignment has helped me understand in-line assembly code
     much better. Hopefully with practice assembly will become more natural to
-    me.     
+    me.
+    
+    I have some questions with the Makefile, don't fully understand some of the
+    syntax, and not entirely sure with what all of the flags achieve. Will try 
+    and discuss with Bart when I see him next.
