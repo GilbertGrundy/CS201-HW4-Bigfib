@@ -153,6 +153,36 @@ extern bucket_t addc_asm_jmp(bucket_t *carry, bucket_t b1, bucket_t b2) {
 
 #endif
 
+#ifdef ADDC_ASM_ADC
+
+extern bucket_t addc_asm_adc(bucket_t *carry, bucket_t b1, bucket_t b2) {
+    assert(sizeof(bucket_t) == 8);
+    bucket_t sum;
+    uint64_t cin = *carry;
+    uint64_t cout;
+    asm(
+        "xorq	%1, %1\n\t"
+        "movq	%2, %0\n\t"
+        "addq	%4, %0\n\t"
+        "jnb	.L%=0\n\t"
+        "movq	$1, %1\n"
+        ".L%=0:\n\t"
+        "addq	%3, %0\n\t"
+        "jnb	.L%=1\n\t"
+        "movq	$1, %1\n"
+        ".L%=1:\n"
+        : "=&rm" (sum), "=&rm"(cout)
+        : "rm" (b1), "rm" (b2), "r" (cin)
+        : "cc"
+    );
+
+    /* Save output carry and return result. */
+    *carry = cout;
+    return sum;
+}
+
+#endif
+
 #ifdef ADDC_C
 
 /* Pure C implementation, works for any bucket size. */
