@@ -4,15 +4,18 @@ CC = gcc
 # For debugging
 #  CDEBUG = -g
 # For profiling
-#  CDEBUG = -fno-inline -O4 -pg
+# CDEBUG = -fno-inline -O4 -pg
 # For optimization
 CDEBUG = -O4
 
 # Which addc() to use. Pick one.
 # For C version
-#   ADDC = -DADDC_C
+# ADDC = -DADDC_C
 # For asm version using jmp
-ADDC = -DADDC_ASM_JMP
+# ADDC = -DADDC_ASM_JMP
+
+#Gilbert Grundy's code:
+ADDC = -DADDC_ASM_ADC
 
 CFLAGS = -Wall -Wextra -Werror $(CDEBUG) $(ADDC)
 
