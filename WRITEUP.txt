@@ -48,7 +48,8 @@
     It appears I spent 50% of the program time inside the bigint_add function,
     and 35% in the addc_asm_jump function.
 
-4.  With the profilling 
+4.  With the profilling turned off and turning on ADDC_ASM_JMP I get this
+    output:
 
     Each sample counts as 0.01 seconds.
     %   cumulative   self              self     total
@@ -59,6 +60,8 @@
     0.00      0.20     0.00   100000     0.00     0.00  bigint_new
     0.00      0.20     0.00     1084     0.00     0.00  bigint_grow
     0.00      0.20     0.00        2     0.00     0.00  hex_digit_value
+    
+    It does appear that the C code and assembly code do perform very similarly.
 
 
 5.  I ran './unit' and it output:
@@ -66,8 +69,23 @@
     all tests passed
     
     
-6.  With my asm() code I ran 'time ./bigfib 100000 >/dev/null' three
-    times again:
+6.  In my addc_asm_adc() function I changed 'cout' to a uint8_t so I could
+    use setc with it. My asm function looks like this:
+
+    asm(
+        "xorb   %1, %1\n\t"
+        "cmpq $1, %4\n\t"
+        "cmc\n\t"
+        "movq	%2, %0\n\t"
+        "adcq	%3, %0\n\t"
+        "setc %1\n\t"
+        : "=&rm" (sum), "=&rm"(cout)
+        : "rm" (b1), "rm" (b2), "r" (cin)
+        : "cc"
+       );
+
+    It passes the 8 tests inside ./unit,and when I re-ran 
+    'time ./bigfib 100000 >/dev/null' three times I got these values:
 
     real    0m0.088s
     user    0m0.082s
@@ -81,4 +99,4 @@
     user    0m0.115s
     sys     0m0.000s
 
-
+    So, it appears that I've sped up the code significantly.
